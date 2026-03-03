@@ -33,11 +33,13 @@ jobs:
           echo "Files:"; ls -al
           for p in index.html css img js article articles.json; do echo "--- $p ---"; ls -al "$p" || true; done
 
-      - name: Deploy to cPanel via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: Deploy via SFTP to cPanel
+        uses: appleboy/scp-action@v0.1.6
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./
-          server-dir: /home/wartajan/public_html/
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || '22' }}
+          source: .
+          target: ${{ secrets.REMOTE_PATH }}
+          rm: true
