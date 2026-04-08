@@ -1,5 +1,5 @@
-{
-  "name": "indonesiadaily",
+﻿{
+  "name": "faktabandung",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
@@ -10,3 +10,5 @@
     "generate": "node tools/generate.js"
   }
 }
+
+

@@ -91,9 +91,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (typeof initializeLoadMore === 'function') {
                     initializeLoadMore();
                 } else {
-                    setTimeout(maybeInitLoadMore, 100);
+                    // Instead of recursive setTimeout, just log and skip
+                    console.log('initializeLoadMore function not found, skipping pagination init');
                 }
             }
+            // Call immediately without setTimeout
             maybeInitLoadMore();
         })
         .catch(err => {
