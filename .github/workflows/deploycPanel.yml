@@ -34,9 +34,10 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./  # atau ./ jika ingin upload semua
-          server-dir: /faktabandung/
-          timeout: 60000
+<<<<<<< HEAD
+          local-dir: ./
+          server-dir: /faktabandung.wartajanten.my.id/
+          timeout: 300000
           dangerous-clean-slate: false
           exclude: |
             **/.git*
