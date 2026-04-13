@@ -14,6 +14,18 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies (if any)
+        run: |
+          if [ -f package.json ]; then npm ci; fi
+
+      - name: Run static generator
+        run: node tools/generate.js
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -22,8 +34,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
           protocol: ftp
-          local-dir: ./
-          server-dir: /faktabandung.wartajanten.my.id/
+          local-dir: ./  # atau ./ jika ingin upload semua
+          server-dir: /faktabandung/
           timeout: 60000
           dangerous-clean-slate: false
           exclude: |
