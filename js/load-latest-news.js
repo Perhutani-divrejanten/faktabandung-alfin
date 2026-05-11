@@ -50,7 +50,7 @@ async function loadLatestNews() {
                         <a href="${article.url}" class="article-title text-secondary text-uppercase font-weight-bold mb-2">${titleText}</a>
                         <p class="article-excerpt text-muted small mb-3">${excerptText}</p>
                         <div class="article-meta mt-auto d-flex align-items-center">
-                            <img class="rounded-circle mr-2" src="img/alfin.jpg" alt="Author">
+                            <img class="rounded-circle mr-2" src="img/pp.png" alt="Author">
                             <small class="text-muted">${article.author || 'Alfin'}</small>
                         </div>
                     </div>
